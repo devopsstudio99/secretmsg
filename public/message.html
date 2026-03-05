@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Secret Message</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Secret Message</h1>
+    
+    <!-- Loading state -->
+    <div id="loadingSection" class="loading-section">
+      <p>Loading message...</p>
+    </div>
+
+    <!-- Message not found error -->
+    <div id="notFoundSection" class="error-section" style="display: none;">
+      <div class="error-icon">❌</div>
+      <h2>Message Not Found</h2>
+      <p>The message you're looking for doesn't exist or has been deleted.</p>
+      <a href="/" class="secondary-btn">Create a New Message</a>
+    </div>
+
+    <!-- Password input form -->
+    <div id="passwordSection" class="password-section" style="display: none;">
+      <p class="info-text">This message is protected. Enter the password to view it.</p>
+      
+      <form id="passwordForm" class="password-form">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Enter password"
+            required
+            autofocus
+          />
+          <div id="passwordError" class="error-message"></div>
+        </div>
+
+        <button type="submit" id="verifyBtn" class="submit-btn">View Message</button>
+      </form>
+    </div>
+
+    <!-- Message content display -->
+    <div id="messageSection" class="message-section" style="display: none;">
+      <div class="message-content">
+        <div class="success-icon">✓</div>
+        <h2>Your Secret Message</h2>
+        <div class="message-text" id="messageText"></div>
+      </div>
+      <a href="/" class="secondary-btn">Create Your Own Secret Message</a>
+    </div>
+  </div>
+
+  <script src="/message.js"></script>
+</body>
+</html>

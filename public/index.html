@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Message App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Create Secret Message</h1>
+    <form id="messageForm" class="message-form">
+      <div class="form-group">
+        <label for="content">Secret Message</label>
+        <textarea 
+          id="content" 
+          name="content" 
+          maxlength="10000" 
+          rows="6" 
+          placeholder="Enter your secret message (max 10000 characters)"
+          required
+        ></textarea>
+        <div class="char-count">
+          <span id="charCount">0</span> / 10000 characters
+        </div>
+        <div id="contentError" class="error-message"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          minlength="4" 
+          maxlength="128" 
+          placeholder="Enter password (4-128 characters)"
+          required
+        />
+        <div id="passwordError" class="error-message"></div>
+      </div>
+
+      <button type="submit" id="submitBtn" class="submit-btn">Create Secret Message</button>
+      
+      <div id="formError" class="error-message"></div>
+    </form>
+
+    <div id="resultSection" class="result-section" style="display: none;">
+      <h2>Message Created Successfully!</h2>
+      <div class="result-content">
+        <div class="form-group">
+          <label>Message URL</label>
+          <div class="url-container">
+            <input type="text" id="messageUrl" readonly />
+            <button id="copyUrlBtn" class="copy-btn">Copy</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>QR Code</label>
+          <div class="qr-container">
+            <img id="qrCode" alt="QR Code" />
+          </div>
+          <button id="downloadQrBtn" class="download-btn">Download QR Code</button>
+        </div>
+
+        <button id="createAnotherBtn" class="secondary-btn">Create Another Message</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
